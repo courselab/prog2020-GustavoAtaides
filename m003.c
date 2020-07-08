@@ -23,8 +23,33 @@
 
 int is_prime (int a)
 {
-  return 0;
+ int p, k, r, z;
+ int i;
+ z = 1;
+if (a>=3)
+{
+  for (i = 2; i < a; i++)
+{
+  k = z;
+  if (a % i == 0)
+  r = 0;
+  else 
+  r = 1;
+
+  z = k * r;
 }
+}
+else
+{
+  if (a == 1)
+  z = 0;
+  else
+  z = 1;
+}
+
+return z;
+}
+
 
 #define USAGE "m003 <num>\n"
 

@@ -21,14 +21,39 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define USAGE "m011 <filename>\n"
-
+#define MAX 2000
 /* Return the number of words in ascii text file 'filename'.*/
 
 int wordcount (char *filename)
 {
-  return 0;
+  int i;
+  int numPalavras;
+  char linha[MAX];
+  FILE *arquivo;
+
+  arquivo = fopen (filename, "r");
+
+  numPalavras = 0;
+
+ while (fgets (linha, MAX, arquivo)){
+    if (linha[0] != '\n'){
+      for (i=0; i<strlen(linha); i++)
+        if (linha[i]==' '){
+            numPalavras++;
+        }
+          
+
+      numPalavras++;
+    }
+  }
+
+
+  fclose (arquivo);
+
+  return numPalavras;
 }
 
 /* Do not edit function main. */

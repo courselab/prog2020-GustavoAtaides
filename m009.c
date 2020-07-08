@@ -25,6 +25,23 @@
 
 void sort (int* vector, int n)
 {
+  int i, k;
+  int troca;
+
+  do{
+    troca = 0;
+
+    for (i=0; i < n; i++)
+      if (vector[i]>vector[i+1])
+      {
+        troca = 1;
+        k = vector[i+1];
+        vector[i+1] = vector [i];
+        vector[i] = k;
+      }
+  
+  }
+  while(troca==1);
 }
 
 #define USAGE "m009 <num1> <nun2> ... \n"

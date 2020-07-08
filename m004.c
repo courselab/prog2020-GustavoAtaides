@@ -1,13 +1,13 @@
 /* m004.c - Binary to decimal.
 
    This program takes a string read as a command line argument and,
-   interpreting it as a positive binary integer, outputs its 
+   interpreting it as a positive binary integer, outputs its
    corresponding value in decimal base.
 
 
    E.g.
 
-      command line    : m004 0011 
+      command line    : m004 0011
       expected output : 3
 
    Directions:
@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 /* Return the value in decimal base of the string b, interpreted
    as the a positive binary number. If the string contains any
@@ -29,8 +30,21 @@
 
 int decimal (char *b)
 {
+  int t, a, k;
   
-  return 0;
+  t = 0;
+
+  while (b[t] != 0)
+    t++;
+
+  a = 0;
+
+  for (k=0; k<t; k++)
+  {
+    if (b[k] == '1')
+      a += pow(2, t-1-k);
+  }
+  return a;
 }
 
 #define USAGE "m004 <string>\n"
@@ -50,6 +64,6 @@ int main (int argc, char **argv)
   n = decimal (argv[1]);
 
   printf ("%d\n", n);
-  
+
   return 0;
 }
